@@ -18,13 +18,14 @@
             overflow: hidden;
             background-color: lightgray;
         }
-        .dino {
+        .frog {
             width: 40px;
             height: 40px;
-            background-color: green;
             position: absolute;
             bottom: 0;
             left: 50px;
+            background-image: url('frog_normal.png');
+            background-size: cover;
         }
         .obstacle {
             width: 20px;
@@ -40,11 +41,11 @@
     <h1>score</h1>
     <p>PRESS SPACE TO JUMP!</p>
     <div class="game-container">
-        <div class="dino" id="dino"></div>
+        <div class="frog" id="frog"></div>
         <div class="obstacle" id="obstacle"></div>
     </div>
     <script>
-        let dino = document.getElementById("dino");
+        let frog = document.getElementById("frog");
         let obstacle = document.getElementById("obstacle");
         let isJumping = false;
         
@@ -66,11 +67,11 @@
                             isJumping = false;
                         }
                         position -= 5;
-                        dino.style.bottom = position + "px";
+                        frog.style.bottom = position + "px";
                     }, 20);
                 }
                 position += 5;
-                dino.style.bottom = position + "px";
+                frog.style.bottom = position + "px";
             }, 20);
         }
         
@@ -80,7 +81,7 @@
             if (obstaclePosition < 0) {
                 obstacle.style.left = "600px";
             }
-            if (obstaclePosition > 50 && obstaclePosition < 90 && dino.offsetTop > 150) {
+            if (obstaclePosition > 50 && obstaclePosition < 90 && frog.offsetTop > 150) {
                 alert("GAME OVER");
                 clearInterval(moveObstacle);
                 location.reload();
